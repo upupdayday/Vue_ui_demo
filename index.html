@@ -7,7 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>轮子</title>
     <style>
-        *{margin: 0; padding: 0; box-sizing: border-box;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --button-height: 32px;
             --font-size: 14px;
@@ -18,19 +23,26 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
+
         #app {
             margin: 20px;
         }
+
         body {
             font-size: var(--font-size);
         }
+
+        .icon {width: 1em; height: 1em; }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-button></g-button>
+    <g-button><svg class="icon">
+        <use xlink:href="#i-setting"></use>
+    </svg>我爱vue</g-button>
 </div>
 
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_935085_j0jmxttd04e.js"></script>
 </body>
 </html>
