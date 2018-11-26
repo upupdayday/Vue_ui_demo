@@ -35,9 +35,9 @@
 </head>
 <body>
 <div id="app">
-    <g-button>我爱vue</g-button>
-    <g-button icon="setting" icon-position="up">我爱vue</g-button>
-    <g-button icon="zan">我爱vue</g-button>
+    <g-button :loading="loading1" @click="loading1 = !loading1">我爱vue</g-button>
+    <g-button icon="setting" icon-position="right" :loading="loading2" @click="loading2 = !loading2">我爱vue</g-button>
+    <g-button icon="zan" :loading="loading3" @click="loading3 = !loading3">我爱vue</g-button>
     <g-icon name="download"></g-icon>
 </div>
 
