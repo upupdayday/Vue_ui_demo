@@ -16,3 +16,71 @@ new Vue({
         loading3: false,
     }
 });
+
+import chai from 'chai'
+const expect = chai.expect
+// 单元测试
+{
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+        propsData: {
+            icon: 'setting'
+        }
+    })
+    vm.$mount()/*mount到内存，不会在页面显示*/
+    let useElement = vm.$el.querySelector('use')
+    let href = useElement.getAttribute('xlink:href')
+    expect(href).to.eq('#i-setting')
+    vm.$el.remove()
+    vm.$destroy()
+}
+//传参loading给true，测试loading
+{
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+        propsData: {
+            icon: 'settings',
+            loading: true
+        }
+    })
+    vm.$mount()
+    let useElement = vm.$el.querySelector('use')
+    let href = useElement.getAttribute('xlink:href')
+    expect(href).to.eq('#i-loading')
+    vm.$el.remove()
+    vm.$destroy()
+}
+//测试order，判断css，需要在页面上渲染出来
+{
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+        propsData: {
+            icon: 'settings'
+        }
+    })
+    vm.$mount(div)
+    let svg = vm.$el.querySelector('svg')
+    let {order} = window.getComputedStyle(svg)
+    expect(order).to.eq('1')
+    vm.$el.remove()
+    vm.$destroy()
+}
+{
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+        propsData: {
+            icon: 'settings',
+            iconPosition: 'right'/*测试order2*/
+        }
+    })
+    vm.$mount(div)//mount到页面
+    let svg = vm.$el.querySelector('svg')
+    let {order} = window.getComputedStyle(svg)
+    expect(order).to.eq('2')
+    vm.$el.remove()
+    vm.$destroy()
+}
