@@ -35,9 +35,10 @@
                 border-top-right-radius: var(--border-radius);
                 border-bottom-right-radius: var(--border-radius);
             }
+            &:hover{
+                position: relative;
+                z-index: 1;
+            }
         }
-
-
-
     }
 </style>
