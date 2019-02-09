@@ -6,6 +6,7 @@
 
 <script>
     export default {
+        name: 'gButtonGroup',
         mounted(){
             // console.log(this.$el.children)
             for(let node of this.$el.children){
@@ -18,7 +19,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .g-button-group{
         display: inline-flex;
         vertical-align: middle;

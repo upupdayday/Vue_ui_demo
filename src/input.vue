@@ -1,13 +1,15 @@
 <template>
-    
+    <div>
+        <input type="text">
+    </div>
 </template>
 
 <script>
     export default {
-        name: "input"
+        name: "gInput"
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

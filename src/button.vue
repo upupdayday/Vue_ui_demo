@@ -11,6 +11,7 @@
 
 <script>
     export default {
+        name: 'gButton',
         props: {
             icon: {},
             loading:{
@@ -28,7 +29,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     /**/
     @keyframes spin
     {
