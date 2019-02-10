@@ -11693,7 +11693,12 @@ exports.default = _default;
     [
       _c("input", {
         attrs: { disabled: _vm.disabled, readonly: _vm.readonly, type: "text" },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            _vm.$emit("change", $event)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -22835,6 +22840,11 @@ new _vue.default({
     loading1: false,
     loading2: false,
     loading3: false
+  },
+  methods: {
+    inputChange: function inputChange(e) {
+      console.log(e.target.value);
+    }
   }
 });
 
@@ -22988,7 +22998,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64026" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60634" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
