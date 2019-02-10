@@ -11655,6 +11655,10 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   name: "gInput",
   props: {
@@ -11696,7 +11700,16 @@ exports.default = _default;
         domProps: { value: _vm.value },
         on: {
           change: function($event) {
-            _vm.$emit("change", $event)
+            _vm.$emit("change", $event.target.value)
+          },
+          input: function($event) {
+            _vm.$emit("input", $event.target.value)
+          },
+          focus: function($event) {
+            _vm.$emit("focus", $event.target.value)
+          },
+          blur: function($event) {
+            _vm.$emit("blur", $event.target.value)
           }
         }
       }),
@@ -22839,7 +22852,8 @@ new _vue.default({
   data: {
     loading1: false,
     loading2: false,
-    loading3: false
+    loading3: false,
+    message: 'hi'
   },
   methods: {
     inputChange: function inputChange(e) {
@@ -22998,7 +23012,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60634" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54851" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
