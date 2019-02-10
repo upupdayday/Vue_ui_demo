@@ -71,4 +71,49 @@
 .g-button-group > .g-button[data-v-9ac681]:hover {
   position: relative;
   z-index: 1;
+}/*--button-height: 32px;*/
+/*--font-size: 14px;*/
+/*--button-bg: white;*/
+/*--button-active-bg: #eee;*/
+/*--border-radius: 4px;*/
+/*--color: #333;*/
+/*--border-color: #999;*/
+/*--border-color-hover: #666;*/
+.wrapper[data-v-d13525] {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+.wrapper[data-v-d13525] > :not(:last-child) {
+  margin-right: 0.5em;
+}
+.wrapper > input[data-v-d13525] {
+  height: 32px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: inherit;
+}
+.wrapper > input[data-v-d13525]:hover {
+  border-color: #666;
+}
+.wrapper > input[data-v-d13525]:focus {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+.wrapper > input[disabled][data-v-d13525], .wrapper > input[readonly][data-v-d13525] {
+  border-color: #bbb;
+  color: #bbb;
+  cursor: not-allowed;
+}
+.wrapper.error > input[data-v-d13525] {
+  border-color: #F1453D;
+}
+.wrapper .icon-error[data-v-d13525] {
+  fill: #F1453D;
+  width: 1.2em;
+  height: 1.2em;
+}
+.wrapper .errorMessage[data-v-d13525] {
+  color: #F1453D;
 }

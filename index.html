@@ -32,18 +32,34 @@
             font-size: var(--font-size);
         }
     </style>
+    <style>
+        .box{
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <g-input></g-input>
-    <g-button :loading="loading1" @click="loading1 = !loading1">我爱vue</g-button>
-    <g-button icon="setting" icon-position="right" :loading="loading2" @click="loading2 = !loading2">我爱vue</g-button>
-    <g-button icon="zan" :loading="loading3" @click="loading3 = !loading3">我爱vue</g-button>
-    <g-button-group>
-        <g-button icon="left">上一页</g-button>
-        <g-button>更多</g-button>
-        <g-button icon="right" icon-position="right">下一页</g-button>
-    </g-button-group>
+    <div class="box">
+        <g-input value="aaa" disabled=disabled></g-input>
+        <g-input value="bbb" readonly=readonly></g-input>
+        <g-input value="ccc"></g-input>
+    </div>
+    <div class="box">
+        <g-input value="ccc" error="用户名不可少于6个字符"></g-input>
+    </div>
+
+    <div class="box">
+        <g-button :loading="loading1" @click="loading1 = !loading1">我爱vue</g-button>
+        <g-button icon="setting" icon-position="right" :loading="loading2" @click="loading2 = !loading2">我爱vue</g-button>
+        <g-button icon="zan" :loading="loading3" @click="loading3 = !loading3">我爱vue</g-button>
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button>更多</g-button>
+            <g-button icon="right" icon-position="right">下一页</g-button>
+        </g-button-group>
+    </div>
+
     <div id="test"></div>
 </div>
 
