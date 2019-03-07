@@ -48,9 +48,9 @@ describe('Input', () => {
                     error: '你错了'
                 }
             }).$mount()
-            /*异步加载问题，找不到use*/
-            //const useElement = vm.$el.querySelector('use')
-            //expect(useElement.getAttribute('xlink:href')).to.equal('i-error')
+            /*非异步问题，要引入icon，在input里面引入*/
+            const useElement = vm.$el.querySelector('use')
+            expect(useElement.getAttribute('xlink:href')).to.equal('#i-error')
             const errorMessage = vm.$el.querySelector('.errorMessage')
             expect(errorMessage.innerText).to.equal('你错了')
 
