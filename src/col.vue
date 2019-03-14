@@ -1,6 +1,5 @@
 <template>
-    <div class="col" :class="[`col-${span}`, offset &&`offset-${offset}` ]"
-    :style="{paddingLeft: gutter/2+'px', paddingRight: gutter/2+'px'}">
+    <div class="col" :class="colClass" :style="colStyle">
         <div style="border: 1px solid green; height: 100px;">
             <slot></slot>
         </div>
@@ -11,7 +10,7 @@
         name: "gCol",
         data () {
             return{
-                gutter:0
+                gutter:0,
             }
         },
         props:{
@@ -20,6 +19,17 @@
             },
             offset:{
                 type:[Number,String]
+            }
+        },
+        computed:{
+            colStyle(){
+                return{
+                    paddingLeft: this.gutter/2+'px',
+                    paddingRight: this.gutter/2+'px'
+                }
+            },
+            colClass(){
+                return [this.span && `col-${span}`, this.offset &&`offset-${offset}`]
             }
         }
     }
