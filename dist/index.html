@@ -31,11 +31,14 @@
         }</style>
     <style>.box{
             margin: 20px;
+        }
+        hr{
+            margin: 20px 0;
         }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
 <div id="app">
-    <g-row>
+    <g-row :gutter="20">
         <g-col>1</g-col>
         <g-col>2</g-col>
     </g-row>
@@ -45,14 +48,8 @@
         <g-col>3</g-col>
     </g-row>
     <g-row>
-        <g-col>1</g-col>
-        <g-col>2</g-col>
-        <g-col>3</g-col>
-        <g-col>4</g-col>
-    </g-row>
-    <g-row>
-        <g-col :span="9">1</g-col>
-        <g-col :span="15">11</g-col>
+        <g-col :span="14">1</g-col>
+        <g-col :span="10">11</g-col>
     </g-row>
     <g-row>
         <g-col span="4">1</g-col>
