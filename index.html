@@ -40,25 +40,41 @@
             margin: 20px 0;
         }
     </style>
+    <style>
+        .demobox{
+            height: 50px;
+            background: grey;
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <g-row :gutter="20">
-        <g-col>1</g-col>
-        <g-col>2</g-col>
+    <g-row class="topbar">
+        <g-col class="demobox" :span="9">
+            <g-row align="left">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+                <g-col>3</g-col>
+                <g-col>4</g-col>
+            </g-row>
+        </g-col>
+        <g-col class="demobox" :span="15">
+            <g-row align="right">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+                <g-col>3</g-col>
+                <g-col>4</g-col>
+                <g-col>5</g-col>
+                <g-col>6</g-col>
+                <g-col>7</g-col>
+            </g-row>
+        </g-col>
     </g-row>
-    <g-row>
-        <g-col>1</g-col>
-        <g-col>2</g-col>
-        <g-col>3</g-col>
-    </g-row>
-    <g-row>
-        <g-col :span="14">1</g-col>
-        <g-col :span="10">11</g-col>
-    </g-row>
-    <g-row>
-        <g-col span="4" >1</g-col>
-        <g-col span="20" offset="2">11</g-col>
+    <g-row class="logo-search-qcode">
+        <g-col class="demobox" :span="4"></g-col>
+        <g-col class="demobox" :span="14"></g-col>
+        <g-col class="demobox" :span="6"></g-col>
     </g-row>
     <hr>
     <div class="box">
