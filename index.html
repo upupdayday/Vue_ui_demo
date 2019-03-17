@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        img {max-width: 100%;}
         :root {
             --button-height: 32px;
             --font-size: 14px;
@@ -42,9 +42,12 @@
     </style>
     <style>
         .demobox{
-            height: 50px;
+            min-height: 50px;
             background: grey;
             border: 1px solid red;
+        }
+        .logo-wrapper{
+            padding: 10px;
         }
     </style>
 </head>
@@ -72,7 +75,16 @@
         </g-col>
     </g-row>
     <g-row class="logo-search-qcode">
-        <g-col class="demobox" :span="4"></g-col>
+        <g-col class="demobox" :span="4">
+            <g-row align="center">
+                <g-col>
+                    <div class="logo-wrapper">
+                        <img src="https://img.alicdn.com/tfs/TB1XrRVLG6qK1RjSZFmXXX0PFXa-190-140.gif" alt="">
+                    </div>
+                </g-col>
+            </g-row>
+
+        </g-col>
         <g-col class="demobox" :span="14"></g-col>
         <g-col class="demobox" :span="6"></g-col>
     </g-row>
