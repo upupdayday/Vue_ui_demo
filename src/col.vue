@@ -29,7 +29,7 @@
                 }
             },
             colClass(){
-                return [this.span && `col-${span}`, this.offset &&`offset-${offset}`]
+                return [this.span && `col-${this.span}`, this.offset &&`offset-${this.offset}`]
             }
         }
     }
