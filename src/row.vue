@@ -11,9 +11,10 @@
         },
         computed:{
             rowStyle(){
+                let {gutter} = this
                 return {
-                    marginLeft: -this.gutter/2+'px',
-                    marginRight: -this.gutter/2+'px'
+                    marginLeft: -gutter/2+'px',
+                    marginRight: -gutter/2+'px'
                 }
             }
         },
