@@ -49,6 +49,15 @@
                 validator
             },
         },
+        methods:{
+            createClasses (obj,str=''){
+                if(!obj){return []}
+                let arr=[]
+                if(obj.span){arr.push(`col-${str}${obj.span}`)}
+                if(obj.offset){arr.push(`col-${str}${obj.offset}`)}
+                return arr
+            }
+        },
         computed:{
             colStyle(){
                 let {gutter} = this;
@@ -59,13 +68,13 @@
             },
             colClass(){
                 let {span, offset,ipad,narrowPc,pc,widePc} = this
+                let createClasses = this.createClasses
                 return [
-                        span && `col-${span}`,
-                        offset &&`offset-${offset}`,
-                    ...(ipad?[`col-ipad-${ipad.span}`]:[]),
-                    ...(narrowPc?[`col-narrow-pc-${narrowPc.span}`]:[]),
-                    ...(pc?[`col-pc-${narrowPc.span}`]:[]),
-                    ...(widePc?[`col-wide-pc-${narrowPc.span}`]:[])
+                    ...createClasses({span,offset}),
+                    ...createClasses(ipad,'ipad-'),
+                    ...createClasses(narrowPc,'narrow-pc-'),
+                    ...createClasses(pc,'pc-$'),
+                    ...createClasses(widePc,'wide-pc-')
                 ]
             }
         }
