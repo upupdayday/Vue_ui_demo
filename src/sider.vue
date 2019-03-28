@@ -6,10 +6,9 @@
 
 <script>
     export default {
-        name: "sider"
+        name: "gSider"
     }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
