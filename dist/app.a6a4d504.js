@@ -11794,7 +11794,13 @@ exports.default = void 0;
 var _default = {
   name: "gRow",
   props: {
-    gutter: [Number, String]
+    gutter: [Number, String],
+    align: {
+      type: String,
+      validator: function validator(value) {
+        return ['left', 'right', 'center'].includes(value);
+      }
+    }
   },
   computed: {
     rowStyle: function rowStyle() {
@@ -11803,6 +11809,10 @@ var _default = {
         marginLeft: -gutter / 2 + 'px',
         marginRight: -gutter / 2 + 'px'
       };
+    },
+    rowClass: function rowClass() {
+      var align = this.align;
+      return [align && "align-".concat(align)];
     }
   },
   mounted: function mounted() {
@@ -11828,7 +11838,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row", style: _vm.rowStyle },
+    { staticClass: "row", class: _vm.rowClass, style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -11873,11 +11883,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
 //
 //
+var validator = function validator(value) {
+  var keys = Object.keys(value);
+  var valid = true;
+  keys.forEach(function (key) {
+    if (!['span', 'offset'].includes(key)) {
+      valid = false;
+    }
+  });
+  return valid;
+};
+
 var _default = {
   name: "gCol",
   data: function data() {
@@ -11891,6 +11921,47 @@ var _default = {
     },
     offset: {
       type: [Number, String]
+    },
+    phone: {
+      type: Object,
+      validator: validator
+    },
+    ipad: {
+      type: Object,
+      validator: validator
+    },
+    narrowPc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: validator
+    },
+    widePc: {
+      type: Object,
+      validator: validator
+    }
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+      if (!obj) {
+        return [];
+      }
+
+      var arr = [];
+
+      if (obj.span) {
+        arr.push("col-".concat(str).concat(obj.span));
+      }
+
+      if (obj.offset) {
+        arr.push("offset-".concat(str).concat(obj.offset));
+      }
+
+      return arr;
     }
   },
   computed: {
@@ -11903,8 +11974,16 @@ var _default = {
     },
     colClass: function colClass() {
       var span = this.span,
-          offset = this.offset;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+          offset = this.offset,
+          ipad = this.ipad,
+          narrowPc = this.narrowPc,
+          pc = this.pc,
+          widePc = this.widePc;
+      var createClasses = this.createClasses;
+      return _toConsumableArray(createClasses({
+        span: span,
+        offset: offset
+      })).concat(_toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrow-pc-')), _toConsumableArray(createClasses(pc, 'pc-')), _toConsumableArray(createClasses(widePc, 'wide-pc-')));
     }
   }
 };
@@ -23218,7 +23297,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53149" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50177" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
