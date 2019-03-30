@@ -37,7 +37,14 @@ new Vue({
     },
     methods:{
         showToast(){
-            this.$toast('我是toast')
+            this.$toast('我是toast',{
+                closeButton: {
+                    text:"ccc-知道了",
+                    callback: function(){
+                        console.log("1111~~~")
+                    }
+                }
+            })
         }
     }
 });
